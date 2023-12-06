@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flip_02</title>
+    <style>
+  .container {
+  width: 200px;
+  height: 260px;
+  margin: 40px 0;
+  perspective: 600px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+}
+
+.card.flipCard {
+  transform: rotateY(180deg);
+}
+
+.cardFace {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 260px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  backface-visibility: hidden;
+}
+
+.cardFaceFront {
+  background: #012169;
+  border-radius: 15px;
+}
+
+.cardFaceBack {
+  background: grey;
+  border-radius: 15px;
+  transform: rotateY(180deg);
+}
+    </style>
+</head>
+<body>
+  <div class="container">
+    <div id="card1" class="card">
+      <div class="cardFace cardFaceFront">Card Front</div>
+      <div class="cardFace cardFaceBack">Card Back</div>
+      
+    </div>
+  </div>
+
+  <script>
+    const card1 = document.getElementById('card1');
+    card1.addEventListener( 'click', function() {
+    card1.classList.toggle('flipCard');
+    console.log('function ran');
+});
+  </script>
+</body>
+</html>
